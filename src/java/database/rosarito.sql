@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2023 a las 07:51:31
+-- Tiempo de generación: 10-08-2023 a las 18:39:35
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `rosadito`
+-- Base de datos: `rosarito`
 --
 
 DELIMITER $$
@@ -67,6 +67,10 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarProductoPorID` (IN `p_idProducto` INT)   BEGIN
     DELETE FROM producto WHERE idProducto = p_idProducto;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `EliminarUsuarioPorID` (IN `p_idUsuario` INT)   BEGIN
+    DELETE FROM usuario WHERE idUsuario = p_idUsuario;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarClienteProveedor` (IN `p_nombre` VARCHAR(255), IN `p_apellido` VARCHAR(255), IN `p_cedula` VARCHAR(15), IN `p_email` VARCHAR(255), IN `p_telefono` VARCHAR(25))   BEGIN
@@ -126,6 +130,28 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SeleccionarUsuarioPorNombreUsuario`
     SELECT * FROM usuario WHERE usuUsuario = p_usuUsuario;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SeleccionarUsuarios` ()   BEGIN
+    SELECT * FROM usuario;
+
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spActualizarUsuario` (IN `p_idUsuario` INT, IN `p_usuUsuario` VARCHAR(50), IN `p_usuClave` VARCHAR(255), IN `p_usuIntento` INT)   BEGIN
+    UPDATE usuario
+    SET usuUsuario = p_usuUsuario,
+        usuClave = p_usuClave,
+        usuIntento = p_usuIntento
+    WHERE idUsuario = p_idUsuario;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spCrearUsuario` (IN `p_usuUsuario` VARCHAR(50), IN `p_usuClave` VARCHAR(255), IN `p_usuIntento` INT)   BEGIN
+    INSERT INTO usuario (usuUsuario, usuClave, usuIntento)
+    VALUES (p_usuUsuario, p_usuClave, p_usuIntento);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spObtenerUsuarioPorID` (IN `p_idUsuario` INT)   BEGIN
+    SELECT * FROM usuario WHERE idUsuario = p_idUsuario;
+END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -142,6 +168,13 @@ CREATE TABLE `clienteproveedor` (
   `cliProEmail` varchar(255) DEFAULT NULL,
   `cliProTelefono` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `clienteproveedor`
+--
+
+INSERT INTO `clienteproveedor` (`idClienteProveedor`, `cliProNombre`, `cliProApellido`, `cliProCedula`, `cliProEmail`, `cliProTelefono`) VALUES
+(0, 'Nombres 1', 'Apellidos 1', '123', 'nombres@gmail.com', '0987654321');
 
 -- --------------------------------------------------------
 
@@ -188,6 +221,14 @@ CREATE TABLE `producto` (
   `proPrecio` double(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`idProducto`, `proNombre`, `proCodigo`, `proStock`, `proPrecio`) VALUES
+(1, 'producto NUEVO 1', 'plt1', 100, 1.00),
+(2, 'producto NUEVO 1', 'la0a8ss7a', 1000, 2.00);
+
 -- --------------------------------------------------------
 
 --
@@ -200,6 +241,13 @@ CREATE TABLE `usuario` (
   `usuClave` varchar(255) DEFAULT NULL,
   `usuIntento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`idUsuario`, `usuUsuario`, `usuClave`, `usuIntento`) VALUES
+(7, 'admin', 'LFPfLv8ji08=', 0);
 
 --
 -- Índices para tablas volcadas
@@ -217,7 +265,7 @@ ALTER TABLE `clienteproveedor`
 ALTER TABLE `detalle`
   ADD PRIMARY KEY (`iddetalle`),
   ADD KEY `fk_detalle_venta1` (`fkOperacionTipo`),
-  ADD KEY `fk_detalle_menu1` (`fkProducto`);
+  ADD KEY `fk_detalle_producto1` (`fkProducto`);
 
 --
 -- Indices de la tabla `operaciontipo`
@@ -255,10 +303,16 @@ ALTER TABLE `operaciontipo`
   MODIFY `idOperacionTipo` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `idProducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -268,7 +322,7 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `detalle`
 --
 ALTER TABLE `detalle`
-  ADD CONSTRAINT `fk_detalle_menu1` FOREIGN KEY (`fkProducto`) REFERENCES `producto` (`idProducto`),
+  ADD CONSTRAINT `fk_detalle_producto1` FOREIGN KEY (`fkProducto`) REFERENCES `producto` (`idProducto`),
   ADD CONSTRAINT `fk_detalle_venta1` FOREIGN KEY (`fkOperacionTipo`) REFERENCES `operaciontipo` (`idOperacionTipo`);
 
 --
