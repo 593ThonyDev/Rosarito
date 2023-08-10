@@ -1,0 +1,369 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 12 jun 2023, 19:01:48
+    Author     : elijo
+*/
+.menuLateralUsu {
+  float: left;
+}
+
+.MenuLateralImage {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+}
+
+.contentInteriorImage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 350px;
+  flex-direction: column;
+
+}
+
+.tilebody {
+  margin-bottom: 10px;
+}
+
+
+.content {
+  background-color: #f5f5f5;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+}
+
+.button-container {
+  margin-bottom: 10px;
+}
+
+.custbutton {
+  margin-right: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+
+}
+
+
+.custombutton:hover {
+  background-color: #2980b9;
+}
+
+
+
+.info-label {
+  font-weight: bold;
+  flex-direction: column;
+
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  min-height: 1700px;
+  width: 100%;
+  padding-left: 40px;
+  /* Ajusta el valor según el espaciado deseado */
+}
+
+.sidebar {
+  background-color: #f5f5f5;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.options {
+  padding-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.options-button:focus {
+  outline: none;
+  background-color: #ccc;
+}
+
+
+.options-button {
+  font-size: 10px;
+
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0AEDF2;
+  color: #333;
+  font-size: 14px;
+
+}
+
+/*nav*/
+
+.Menu-bar a {
+  text-decoration: none;
+  color: rgb(13, 13, 13);
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  background-color: #A2E9EE;
+}
+
+.MenuLogoBar {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+
+
+.MenuLogoBar img {
+  width: 160px !important;
+  height: 40px !important;
+  float: left !important;
+}
+
+
+.menu-links {
+  padding-left: 15%;
+  padding-inline-end: 5%;
+  text-align: right;
+  /* alineación del texto a la derecha */
+  background-color: #A2E9EE;
+}
+
+.Menu-bar a:hover {
+  background-color: rgb(200, 200, 200);
+  /* Cambia el color de fondo en el hover */
+}
+
+/*logo-bar*/
+.Logo-Bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin-top: 15px;
+  padding-inline-end: 5%;
+  margin-block-end: 2%;
+  background-color: #3498db;
+
+}
+
+.Logo-Bar a:hover {
+  background-color: rgb(200, 200, 200);
+  /* Cambia el color de fondo en el hover */
+}
+
+.Logo-Bar a {
+  color: #333;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  color: rgb(13, 13, 13);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+
+}
+
+/*iamgenes dahcboard*/
+
+
+.image-container {
+  width: 100%;
+  height: 100px;
+  /*Largo del modulo*/
+  overflow: hidden;
+}
+
+.image-container:hover,
+.sectioncontent2column:hover .section-description:hover {
+  opacity: 0.7;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.DashcboardContent {
+  width: 100%;
+  max-width: 1400px;
+  height: 15rem;
+  /*Espaciado entre containers :v*/
+  padding: 0 5%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectioncontent2column {
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  /* Agregué "px" al valor para especificar unidades de píxeles */
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  flex: 0 0 20%;
+  max-width: 20%;
+  box-sizing: border-box;
+
+}
+
+.sectioncontent2column:hover,
+.sectioncontent2column .image-container:hover {
+  opacity: 0.9;
+}
+
+.sectioncontent2column:hover {
+  background-color: #84b8e4;
+}
+
+
+.buscador {
+  width: 100%;
+  max-width: 1400px;
+  height: 8rem;
+  background-color: #1573E6;
+  padding: 2%;
+  box-sizing: border-box;
+  position: relative;
+  margin-bottom: 8px;
+  /* Separación de 8px */
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.searchcer {
+  display: flex;
+}
+
+.searchcer input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+}
+
+/*Abrir modales*/
+
+.formGroup input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.formGroup label {
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fefefe;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  flex: 140px;
+}
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 150px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.proImgcontainer {
+  width: 150px;
+  float: right;
+  margin-left: 20px;
+
+}
+
+form {
+  width: calc(100% - 200px);
+  /* Restar el ancho del contenedor de la imagen y el margen */
+  float: left;
+}
+
+
+.profImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+.btnContain {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.custbtnInt {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

@@ -1,0 +1,92 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 3 ago 2023, 01:07:33
+    Author     : elijo
+*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;  /* Padding en la parte superior del contenedor modal */
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+
+
+    /* Animación para hacer que el modal aparezca desde arriba */
+    @keyframes animatetop {
+        from {top: -300px; opacity: 0}
+        to {top: 0; opacity: 1}
+    }
+
+    /* Estilos del título del modal */
+    .modal-content .message {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+
+    /* Estilos de los elementos de contenido-wrapper */
+    .modal-content .content-wrapper {
+        margin-bottom: 1em;
+    }
+
+    /* Estilos de las etiquetas de los elementos */
+    .modal-content .label {
+        font-weight: bold;
+    }
+
+    /* Estilos de los valores de los elementos */
+    .modal-content .value {
+        font-style: italic;
+    }
+
+
+#modal-form .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Configura el ancho del primer modal */
+    font-weight: bold; /* Todo el texto en el primer modal en negrita */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+#modal .modal-content {
+    /* No cambies este, es el del segundo modal */
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
